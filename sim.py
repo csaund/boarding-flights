@@ -19,6 +19,7 @@ class Simulator:
     def __init__(self, rows, seats_per_row):
         self.plane = self.init_airplane(rows, seats_per_row)
         self.passengers = self.init_passengers()
+        self.assign_seats()
         return
 
     def init_airplane(self, rows, seats_per_row):
@@ -26,9 +27,7 @@ class Simulator:
         return plane
 
     def rear_frist(plane, passengers):
-        # sort passengers by seat number
 
-        #
 
         return
 
@@ -43,6 +42,19 @@ class Simulator:
         for i in range(0, len(passengers)):
             passengers[i].seat_assignment = i
         return passengers
+
+    def assign_seats(self):
+        # can only assign seats to the number of passengers we have
+        for i in range(0, len(self.passengers)):
+            # ugh
+            if(i == 0):
+                seat = self.plane.seats[0][0]
+                self.passengers[i].seat_assignment = seat
+            else:
+                seat = self.plane.seats[i % len(self.plane.seats)][i % len(self.plane.seats[0])]
+                self.passengers[i].seat_assignment = seat
+
+
 
 # TODO ugh what is this again?
 ## TODO take args here

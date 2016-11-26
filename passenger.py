@@ -12,5 +12,6 @@ class Passenger:
         # only allowed one carry on
         self.hasBag = random.random() < Probabilities[probability];
         # initialize to all be off the plane
-        self.seat_assignment = -1
-        return 
+        self.seat_assignment = {}
+        self.in_seat = False
+        return
