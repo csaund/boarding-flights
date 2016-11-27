@@ -15,6 +15,9 @@ Side = {
 # side is left/right
 # row is row in aircraft
 class Seat:
+    def __str__(self):
+        return "type: %s, side: %s, row_num: %s" % (self.type, self.side, self.row_num)
+
     def __init__(self, seat_type, side, row_num):
         self.type = seat_type
         self.side = side
@@ -27,11 +30,11 @@ class Airplane:
 
     def __init__(self, rows, seats_per_row):
         self.seats = [[None for x in range(seats_per_row)] for y in range(rows)]
-
         self.num_rows = rows
         self.num_seats_per_row = seats_per_row
         self.total_seats = self.num_rows * self.num_seats_per_row
         self.init_seats()
+        print self.seats
         return
 
     ## Tells if seats[i] is left, right, window, middle, aisle

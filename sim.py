@@ -38,9 +38,8 @@ class Simulator:
         return
 
     def init_passengers(self):
+        # create list of passengers as long as nmber passengers.
         passengers = map(lambda passenger: Passenger('HIGH'), [None] * NUM_PASSENGERS_FULL_FLIGHT)
-        for i in range(0, len(passengers)):
-            passengers[i].seat_assignment = i
         return passengers
 
     def assign_seats(self):
@@ -53,7 +52,16 @@ class Simulator:
             else:
                 seat = self.plane.seats[i % len(self.plane.seats)][i % len(self.plane.seats[0])]
                 self.passengers[i].seat_assignment = seat
+                # print self.passengers[i]
 
+    def check_seats(self):
+        # go through each passenger and check that all seats are full
+        seats = []
+        seats_should_be = []
+        for i in range(0, len(self.passengers)):
+            seats[i] = passenger.seat_assignment
+
+        return
 
 
 # TODO ugh what is this again?

@@ -7,6 +7,11 @@ Probabilities = {
 }
 
 class Passenger:
+    def __repr__(self):
+        return str(self)
+
+    def __str__(self):
+        return "has bag: %s, seat_assignment: %s" % (self.hasBag, self.seat_assignment)
 
     def __init__(self, probability):
         # only allowed one carry on
